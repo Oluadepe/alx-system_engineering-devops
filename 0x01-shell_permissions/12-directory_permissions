@@ -1,2 +1,2 @@
 #!/bin/bash
-mdir -m 751 my_dir
+mdir -m u+rwx g+rx o+x my_dir

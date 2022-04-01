@@ -1,2 +1,0 @@
-#!/bin/bash
-mdir -m u+rwx g+rx o+x my_dir

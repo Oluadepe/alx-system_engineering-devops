@@ -17,6 +17,17 @@ This is a group Project under the ALX Software Engineering Training
 * Similarly in a job interview, you should answer what the interviewer asked for, be careful about being too verbose - always ask the interviewer if going into details is necessary - speaking too much can play against you
 * In this project, again, avoid going in details if not asked
 
+# Project Concept
+
+Below are the concepts for this project:
+
+* DNS
+* Monitoring
+* Web Server
+* Network basics
+* Load balancer
+* Server
+
 ## AUTHORS
 
 * Rotimi Owolabi <iamrotimiowolabi@gmail.com>

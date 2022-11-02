@@ -2,7 +2,7 @@
 # This script is displaying "Best School" 10 times
 
 x=0
-while [ $x -lt 10 ]
+while [ $x <= 10 ]
 do
 echo "Best School"
 x=$(( x+1 ))

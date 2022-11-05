@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script gives information about the "school" file
+# This script displays numbers from 1 to 100
 
 n=1
 
@@ -23,4 +23,4 @@ echo $n
 fi
 
 n=$(( n+1 ))
-done
+done \n

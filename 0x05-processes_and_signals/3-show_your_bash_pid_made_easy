@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display PID and process name that contain the word bash withous ps commamnd
+
+pgrep bash -l

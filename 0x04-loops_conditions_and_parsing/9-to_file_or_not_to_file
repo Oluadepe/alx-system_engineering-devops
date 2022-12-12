@@ -6,7 +6,7 @@ file=school
 #file exist
 if [ -e $file ]
 then
-echo "school file exist"
+echo "school file exists"
 
 #file is empty
 if [ -s $file ]

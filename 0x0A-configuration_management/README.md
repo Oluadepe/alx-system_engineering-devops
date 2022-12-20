@@ -1,1 +1,1 @@
-This repository is about configuration management using puppet. The project is part of the ALX Software Engineering Training.
+This repo is about "Puppet configuration management" as paty of ALX Software Engineering training project

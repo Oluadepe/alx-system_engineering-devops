@@ -19,7 +19,7 @@ frontend http_frontend
 backend http_backend
 	balance roundrobin
 	server 36100-web-01 34.229.49.169:80 check
-	server 36100-web-01 54.162.223.76:80 check
+	server 36100-web-02 54.162.223.76:80 check
 #--$DOMAIN_NAME-params-end--
 "
 

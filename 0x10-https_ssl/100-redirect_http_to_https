@@ -34,23 +34,23 @@ errorfile 502 /etc/haproxy/errors/502.http
 errorfile 503 /etc/haproxy/errors/503.http
 errorfile 504 /etc/haproxy/errors/504.http
 
+frontend www
+        bind *:80
+	redirect scheme https code 301 if !{ ssl_fc }
 
 frontend http_front
-bind *:80
-bind *:443 ssl crt /etc/ssl/www.gzoref.tech/www.gzoref.tech.pem
-
-redirect scheme https if !{ ssl_fc }
-
-acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-use_backend letsencrypt-backend if letsencrypt-acl
-default_backend http_back
-
-
-backend letsencrypt-backend
-server letsencrypt 127.0.0.1:443
-
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.oluadepe-alxse.tech.pem
+        http-request add-header X-Served-By http
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        mode http
+        default_backend http_back
 
 backend http_back
-balance roundrobin
-server 1034-web-00 35.227.27.195:80 check
-server 1034-web-02 34.74.118.58:80 check
+        balance roundrobin
+        server 36100-web-01 34.229.49.169:80 check
+        server 36100-web-02 54.162.223.76:80 check
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321

@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
+
+# Get the current date in the format day-month-year
+
+date=$(date +%d-%m-%Y)
+
 #Generates a MySQL dump and creates a compressed archive out of it.
+
 mysqldump -uroot -p"$1" --all-databases > backup.sql
+
+# Compress the MySQL dump to a tar.gz archive with the name format day-month-year.tar.gz
 tar -czvf $"(date + %d-%b-%Y).tar.gz" backup.sql
+
+echo "MySQL dump and compress successful."

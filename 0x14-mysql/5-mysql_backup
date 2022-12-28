@@ -1,14 +1,28 @@
 #!/usr/bin/env bash
 
-# Get the current date in the format day-month-year
 
+# Check if a password was provided
+if [ -z "$1" ]; then
+	  echo "Error: No password provided."
+	    exit 1
+fi
+
+# Get the current date in the format day-month-year
 date=$(date +%d-%m-%Y)
 
-#Generates a MySQL dump and creates a compressed archive out of it.
+# Generate the MySQL dump and save it to a file named backup.sql
+mysqldump -u root -p$1 --all-databases > backup.sql
 
-mysqldump -uroot -p"$1" --all-databases > backup.sql
+# Check if the MySQL dump was successful
+if [ $? -ne 0 ]; then
+	  echo "Error: MySQL dump failed."
+	    exit 1
+fi
 
 # Compress the MySQL dump to a tar.gz archive with the name format day-month-year.tar.gz
-tar -czvf $"(date + %d-%b-%Y).tar.gz" backup.sql
+tar -czvf $date.tar.gz backup.sql
+
+# Remove the MySQL dump file
+rm backup.sql
 
 echo "MySQL dump and compress successful."

@@ -1,0 +1,1 @@
+This repo is about "Postmortem", tool widely used in the tech industry to document any outage and the debugging proceed used by the team(s) in charge of the system. This is part of the training project for ALX Software Engineering

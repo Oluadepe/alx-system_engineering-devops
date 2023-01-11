@@ -1,0 +1,24 @@
+# Nginx configuration file
+
+# server block to listen on port 80 for requests to localhost
+server {
+    listen 80;
+    server_name localhost;
+
+    # location block to proxy requests to /airbnb-onepage/ to a server running at IP 0.0.0.0 on port 5000
+    location /airbnb-onepage/ {
+        proxy_pass http://0.0.0.0:5000;
+
+        # set headers to pass along information about the original client to the proxied server
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+# root directory for the server
+root 	/var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        # when client request to the server, it will serve the first file that matched from the list of index.html, index.htm, index.nginx-debian.html
+        index index.html index.htm index.nginx-debian.html;
